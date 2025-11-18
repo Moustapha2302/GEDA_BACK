@@ -11,12 +11,12 @@ Route::post('/login/maire', [LoginController::class, 'loginMaire']);
 Route::post('/login/sg', [LoginController::class, 'loginSG']);
 Route::post('/login/agent-s01', [LoginController::class, 'loginAgentS01']);
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
-
 // ====================== SERVICE ÉTAT CIVIL (S01) ======================
-Route::middleware(['auth:sanctum', 'service:S01'])  // ✅ Correct
+Route::middleware(['auth:sanctum', 'service:s01'])  // ← CORRIGÉ : deux points, pas point
     ->prefix('etat-civil')
     ->name('etat-civil.')
     ->group(function () {
+
         Route::get('/actes', [EtatCivilController::class, 'index']);
         Route::get('/actes/{acte}', [EtatCivilController::class, 'show']);
         Route::post('/actes', [EtatCivilController::class, 'store']);

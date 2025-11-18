@@ -37,17 +37,7 @@ class User extends Authenticatable
     // SEULS CES DEUX RÔLES PEUVENT VALIDER LES ACTES D'ÉTAT CIVIL
     public function peutValiderActesEtatCivil(): bool
     {
-        // Accepte les deux formes réelles présentes dans ta base
-        if ($this->role === 'sg') {
-            return true;
-        }
-
-        // Accepte chef_s01 OU chef_service (le rôle que tu as vraiment)
-        if ($this->service_code === 'S01' && in_array($this->role, ['chef_s01', 'chef_service'])) {
-            return true;
-        }
-
-        return false;
+        return $this->role === 'chef_service' || $this->role === 'sg';
     }
 
     // Compatibilité avec l'ancien code
