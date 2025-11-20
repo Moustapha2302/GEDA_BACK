@@ -12,14 +12,12 @@ class User extends Authenticatable
 
     protected $fillable = [
         'name',
-        'nom',           // ✅ Ajouté
-        'prenom',        // ✅ Ajouté
         'email',
         'password',
-        'service_code',
-        'service',       // ✅ Ajouté pour compatibilité avec LoginController
-        'role'
+        'service_code',   // S01, S02, S03...
+        'role'            // maire, sg, chef_s01, agent_s01, chef_s02, etc.
     ];
+
     protected $hidden = ['password'];
 
     // ================================================================
@@ -82,69 +80,29 @@ class User extends Authenticatable
     // À ajouter dans App\Models\User.php
     // ================================================================
 
-    public function isControleurFinancier(): bool
-    {
-        return in_array($this->role, ['controleur_financier', 'Contrôleur Financier']);
-    }
-
     public function isChefS02(): bool
     {
-        $serviceCode = $this->service_code ?? $this->service;
-        return in_array($this->role, ['chef_s02', 'Chef S02', 'chef_service'])
-            && $serviceCode === 'S02';
+        return in_array($this->role, ['chef_s02', 'chef_service']) && $this->service_code === 'S02';
     }
 
     public function isAgentS02(): bool
     {
-        $serviceCode = $this->service_code ?? $this->service;
-        return in_array($this->role, ['agent_s02', 'Agent S02'])
-            && $serviceCode === 'S02';
+        return $this->role === 'agent_s02' && $this->service_code === 'S02';
     }
 
+    // SEULS LE CHEF S02 ET LE SG PEUVENT VALIDER LES DOCUMENTS FINANCIERS
     public function peutValiderDocumentsFinanciers(): bool
     {
-        return in_array($this->role, [
-            'chef_s02',
-            'Chef S02',
-            'secretaire_general',
-            'maire',
-            'Maire',
-            'sg',
-            'SG'
-        ]) || ($this->isChefS02());
-    }
+        // Secrétaire Général peut tout valider
+        if ($this->role === 'sg') {
+            return true;
+        }
 
-    public function peutConsulterStatistiquesFinancieres(): bool
-    {
-        return in_array($this->role, [
-            'controleur_financier',
-            'Contrôleur Financier',
-            'sg',
-            'SG',
-            'maire',
-            'Maire',
-            'Chef S02',
-            'chef_s02'
-        ]) || $this->isChefS02();
-    }
+        // Chef du service Finance
+        if ($this->service_code === 'S02' && in_array($this->role, ['chef_s02', 'chef_service'])) {
+            return true;
+        }
 
-    public function peutAccederFinance(): bool
-    {
-        // Utiliser service_code ou service
-        $serviceCode = $this->service_code ?? $this->service;
-
-        return $serviceCode === 'S02'
-            || in_array($this->role, [
-                'Contrôleur Financier',
-                'controleur_financier',
-                'Chef S02',
-                'chef_s02',
-                'Agent S02',
-                'agent_s02',
-                'maire',
-                'Maire',
-                'sg',
-                'SG'
-            ]);
+        return false;
     }
 }

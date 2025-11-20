@@ -92,13 +92,6 @@ class UserSeeder extends Seeder
                 'role' => 'agent',
                 'service_code' => 'S02',
             ],
-            [
-                'name' => 'Fatou Sane',
-                'email' => 'fatou.sane@mairie-ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'agent',
-                'service_code' => 'S02',
-            ],
 
             // ============================================
             // S03 - URBANISME

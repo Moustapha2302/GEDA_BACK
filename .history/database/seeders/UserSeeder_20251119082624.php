@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     {
         $users = [
             // ============================================
-            // ACTEURS STRATÉGIQUES
+            // UTILISATEURS ADMINISTRATIFS
             // ============================================
             [
                 'name' => 'Maire de Ziguinchor',
@@ -26,25 +26,11 @@ class UserSeeder extends Seeder
                 'email' => 'sg@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'sg',
-                'service_code' => 'S11',
-            ],
-            [
-                'name' => 'Directeur de Cabinet',
-                'email' => 'directeur.cabinet@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'directeur_cabinet',
-                'service_code' => 'S12',
-            ],
-            [
-                'name' => 'Administrateur Système',
-                'email' => 'admin@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'admin_systeme',
-                'service_code' => 'S10',
+                'service_code' => null,
             ],
 
             // ============================================
-            // S01 - ÉTAT CIVIL
+            // SERVICE S01 - ÉTAT CIVIL
             // ============================================
             [
                 'name' => 'Chef Service État Civil',
@@ -62,18 +48,11 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S02 - FINANCES
+            // SERVICE S02 - FINANCE
             // ============================================
             [
-                'name' => 'Directeur Financier',
-                'email' => 'directeur.finances@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'directeur_financier',
-                'service_code' => 'S02',
-            ],
-            [
                 'name' => 'Contrôleur Financier',
-                'email' => 'controleur.financier@ziguinchor.sn',
+                'email' => 'controleur@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'controleur_financier',
                 'service_code' => 'S02',
@@ -82,34 +61,20 @@ class UserSeeder extends Seeder
                 'name' => 'Chef Service Finance',
                 'email' => 'chef.s02@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'chef_service',
+                'role' => 'chef_s02',
                 'service_code' => 'S02',
             ],
             [
                 'name' => 'Agent Finance',
                 'email' => 'agent.s02@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'agent',
-                'service_code' => 'S02',
-            ],
-            [
-                'name' => 'Fatou Sane',
-                'email' => 'fatou.sane@mairie-ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'agent',
+                'role' => 'agent_s02',
                 'service_code' => 'S02',
             ],
 
             // ============================================
-            // S03 - URBANISME
+            // SERVICE S03 - URBANISME
             // ============================================
-            [
-                'name' => 'Directeur Urbanisme',
-                'email' => 'directeur.urbanisme@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'directeur',
-                'service_code' => 'S03',
-            ],
             [
                 'name' => 'Chef Service Urbanisme',
                 'email' => 'chef.s03@ziguinchor.sn',
@@ -126,24 +91,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S04 - RESSOURCES HUMAINES
+            // SERVICE S04 - TRAVAUX PUBLICS
             // ============================================
             [
-                'name' => 'Directeur des Ressources Humaines',
-                'email' => 'drh@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'drh',
-                'service_code' => 'S04',
-            ],
-            [
-                'name' => 'Chef Service RH',
+                'name' => 'Chef Service Travaux Publics',
                 'email' => 'chef.s04@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'chef_service',
                 'service_code' => 'S04',
             ],
             [
-                'name' => 'Agent RH',
+                'name' => 'Agent Travaux Publics',
                 'email' => 'agent.s04@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -151,17 +109,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S05 - COMMUNICATION
+            // SERVICE S05 - ENVIRONNEMENT
             // ============================================
             [
-                'name' => 'Chef Service Communication',
+                'name' => 'Chef Service Environnement',
                 'email' => 'chef.s05@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'chef_service',
                 'service_code' => 'S05',
             ],
             [
-                'name' => 'Agent Communication',
+                'name' => 'Agent Environnement',
                 'email' => 'agent.s05@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -169,24 +127,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S06 - SERVICES TECHNIQUES COMMUNAUX
+            // SERVICE S06 - EAU ET ASSAINISSEMENT
             // ============================================
             [
-                'name' => 'Directeur Services Techniques Communaux',
-                'email' => 'directeur.stc@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'directeur',
-                'service_code' => 'S06',
-            ],
-            [
-                'name' => 'Chef Service STC',
+                'name' => 'Chef Service Eau et Assainissement',
                 'email' => 'chef.s06@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'chef_service',
                 'service_code' => 'S06',
             ],
             [
-                'name' => 'Agent STC',
+                'name' => 'Agent Eau et Assainissement',
                 'email' => 'agent.s06@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -194,24 +145,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S07 - PLANIFICATION & COMPÉTENCES TRANSFÉRÉES
+            // SERVICE S07 - TRANSPORT
             // ============================================
             [
-                'name' => 'Directeur DPCT',
-                'email' => 'directeur.dpct@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'directeur',
-                'service_code' => 'S07',
-            ],
-            [
-                'name' => 'Chef Service DPCT',
+                'name' => 'Chef Service Transport',
                 'email' => 'chef.s07@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'chef_service',
                 'service_code' => 'S07',
             ],
             [
-                'name' => 'Agent DPCT',
+                'name' => 'Agent Transport',
                 'email' => 'agent.s07@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -219,24 +163,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S08 - PARTENARIAT & COOPÉRATION DÉCENTRALISÉE
+            // SERVICE S08 - VOIRIE
             // ============================================
             [
-                'name' => 'Responsable CPCD',
-                'email' => 'responsable.cpcd@ziguinchor.sn',
-                'password' => Hash::make('123456'),
-                'role' => 'responsable',
-                'service_code' => 'S08',
-            ],
-            [
-                'name' => 'Chef Service Partenariat',
+                'name' => 'Chef Service Voirie',
                 'email' => 'chef.s08@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'chef_service',
                 'service_code' => 'S08',
             ],
             [
-                'name' => 'Agent Partenariat',
+                'name' => 'Agent Voirie',
                 'email' => 'agent.s08@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -244,17 +181,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S09 - CELLULE JURIDIQUE & CONTENTIEUX
+            // SERVICE S09 - ÉLECTRICITÉ
             // ============================================
             [
-                'name' => 'Chef Cellule Juridique',
-                'email' => 'juriste@ziguinchor.sn',
+                'name' => 'Chef Service Électricité',
+                'email' => 'chef.s09@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'juriste',
+                'role' => 'chef_service',
                 'service_code' => 'S09',
             ],
             [
-                'name' => 'Agent Juridique',
+                'name' => 'Agent Électricité',
                 'email' => 'agent.s09@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -262,35 +199,35 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S10 - CELLULE INFORMATIQUE
+            // SERVICE S10 - ÉCLAIRAGE PUBLIC
             // ============================================
             [
-                'name' => 'Responsable SI',
-                'email' => 'responsable.si@ziguinchor.sn',
+                'name' => 'Chef Service Éclairage Public',
+                'email' => 'chef.s10@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'responsable_si',
+                'role' => 'chef_service',
                 'service_code' => 'S10',
             ],
             [
-                'name' => 'Technicien Informatique',
-                'email' => 'technicien.s10@ziguinchor.sn',
+                'name' => 'Agent Éclairage Public',
+                'email' => 'agent.s10@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'technicien',
+                'role' => 'agent',
                 'service_code' => 'S10',
             ],
 
             // ============================================
-            // S11 - SECRÉTARIAT GÉNÉRAL
+            // SERVICE S11 - RESSOURCES HUMAINES
             // ============================================
             [
-                'name' => 'Assistant Secrétaire Général',
-                'email' => 'assistant.sg@ziguinchor.sn',
+                'name' => 'Chef Service Ressources Humaines',
+                'email' => 'chef.s11@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'assistant',
+                'role' => 'chef_service',
                 'service_code' => 'S11',
             ],
             [
-                'name' => 'Agent Secrétariat Général',
+                'name' => 'Agent Ressources Humaines',
                 'email' => 'agent.s11@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -298,17 +235,17 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S12 - CABINET DU MAIRE
+            // SERVICE S12 - COMMUNICATION
             // ============================================
             [
-                'name' => 'Assistant Cabinet Maire',
-                'email' => 'assistant.cabinet@ziguinchor.sn',
+                'name' => 'Chef Service Communication',
+                'email' => 'chef.s12@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'assistant',
+                'role' => 'chef_service',
                 'service_code' => 'S12',
             ],
             [
-                'name' => 'Agent Cabinet',
+                'name' => 'Agent Communication',
                 'email' => 'agent.s12@ziguinchor.sn',
                 'password' => Hash::make('123456'),
                 'role' => 'agent',
@@ -316,13 +253,13 @@ class UserSeeder extends Seeder
             ],
 
             // ============================================
-            // S13 - ARCHIVES MUNICIPALES
+            // SERVICE S13 - ARCHIVES
             // ============================================
             [
-                'name' => 'Archiviste Municipal',
-                'email' => 'archiviste@ziguinchor.sn',
+                'name' => 'Chef Service Archives',
+                'email' => 'chef.s13@ziguinchor.sn',
                 'password' => Hash::make('123456'),
-                'role' => 'archiviste',
+                'role' => 'chef_service',
                 'service_code' => 'S13',
             ],
             [
@@ -344,27 +281,14 @@ class UserSeeder extends Seeder
         $this->command->info('✅ ' . count($users) . ' utilisateurs créés/mis à jour avec succès !');
         $this->command->info('📧 Mot de passe par défaut : 123456');
         $this->command->newLine();
-        $this->command->info('📋 Récapitulatif par service :');
-
-        $services = [
-            'Acteurs Stratégiques' => 4,
-            'S01 - État Civil' => 2,
-            'S02 - Finances' => 4,
-            'S03 - Urbanisme' => 3,
-            'S04 - Ressources Humaines' => 3,
-            'S05 - Communication' => 2,
-            'S06 - Services Techniques Communaux' => 3,
-            'S07 - Planification & Compétences Transférées' => 3,
-            'S08 - Partenariat & Coopération' => 3,
-            'S09 - Cellule Juridique' => 2,
-            'S10 - Cellule Informatique' => 2,
-            'S11 - Secrétariat Général' => 3,
-            'S12 - Cabinet du Maire' => 3,
-            'S13 - Archives Municipales' => 2,
-        ];
-
-        foreach ($services as $service => $count) {
-            $this->command->info("  • $service : $count utilisateurs");
-        }
+        $this->command->info('📋 Liste des comptes :');
+        $this->command->table(
+            ['Email', 'Rôle', 'Service'],
+            collect($users)->map(fn($u) => [
+                $u['email'],
+                $u['role'],
+                $u['service_code'] ?? 'N/A'
+            ])->toArray()
+        );
     }
 }
