@@ -447,7 +447,7 @@ class LoginController extends Controller
         return $this->login($request, 'agent', 'S03');
     }
 
-    /**
+        /**
      * Méthode générique de connexion par rôle et service
      */
     private function login(Request $request, string $role, string $service)
@@ -460,7 +460,7 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)
             ->where(function ($q) use ($role, $service) {
                 $q->where('role', $role)
-                    ->where('service_code', $service);
+                  ->where('service_code', $service);
             })
             ->first();
 
@@ -484,4 +484,5 @@ class LoginController extends Controller
             'token'   => $token
         ], 200);
     }
+}
 }

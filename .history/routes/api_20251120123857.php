@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\EtatCivilController;
 use App\Http\Controllers\Api\FinanceController;
-use App\Http\Controllers\Api\UrbanismeController;
 
 
 // ====================== AUTH ======================
@@ -149,24 +148,3 @@ Route::middleware(['auth:sanctum'])->prefix('finances/consultation')->group(func
 // ====================== AUTHENTIFICATION S03 ======================
 Route::post('/login/chef-s03', [LoginController::class, 'loginChefS03']);
 Route::post('/login/agent-s03', [LoginController::class, 'loginAgentS03']);
-
-Route::middleware(['auth:sanctum'])->prefix('urbanisme')->group(function () {
-
-    // Permis de construire
-    Route::get('/permis-construire', [UrbanismeController::class, 'indexPermis']);
-    Route::post('/permis-construire', [UrbanismeController::class, 'storePermis']);
-    Route::get('/permis-construire/{id}', [UrbanismeController::class, 'showPermis']);
-    Route::put('/permis-construire/{id}', [UrbanismeController::class, 'updatePermis']);
-    Route::post('/permis-construire/{id}/avis-juridique', [UrbanismeController::class, 'demanderAvisJuridique']);
-    Route::post('/permis-construire/{id}/valider', [UrbanismeController::class, 'validerPermis']);
-
-    // Plans d’occupation des sols
-    Route::get('/plans-occupation', [UrbanismeController::class, 'indexPlans']);
-    Route::post('/plans-occupation', [UrbanismeController::class, 'storePlan']);
-
-    // Autorisations diverses
-    Route::get('/autorisations', [UrbanismeController::class, 'indexAutorisations']);
-
-    // Suivi dossier citoyen
-    Route::get('/dossiers/citoyen/{id}', [UrbanismeController::class, 'suiviDossierCitoyen']);
-});
